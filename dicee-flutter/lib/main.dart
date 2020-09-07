@@ -29,8 +29,10 @@ class _DicePageState extends State<DicePage> {
   int rightDiceNo = 1;
   void Randomise()
   {
-    leftDiceNo= Random().nextInt(6)+1;
-    rightDiceNo= Random().nextInt(6)+1;
+    setState(() {
+      leftDiceNo= Random().nextInt(6)+1;
+      rightDiceNo= Random().nextInt(6)+1;
+    });
     print("clicked");
   }
 
@@ -42,9 +44,7 @@ class _DicePageState extends State<DicePage> {
           Expanded(
               child: FlatButton(
                 onPressed: (){
-                  setState(() {
-                   Randomise();
-                  });
+                  Randomise();
                   },
                 child: Image.asset('images/dice$leftDiceNo.png'),
               )
@@ -52,9 +52,7 @@ class _DicePageState extends State<DicePage> {
           Expanded(
               child: FlatButton(
                 onPressed: (){
-                  setState(() {
-                    Randomise();
-                  });
+                  Randomise();
                 },
                 child: Image.asset('images/dice$rightDiceNo.png'),
               ),

@@ -14,7 +14,7 @@ class AskMeAnything extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Ask Me Anything"),
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Colors.red,
       ),
       body: Ball(),
       backgroundColor: Colors.blue[100],
@@ -37,13 +37,15 @@ class _BallState extends State<Ball> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Center(
-          child: TextButton(
-            onPressed: (){
-              random();
-              print(ballNo);
-            },
-            child: Image.asset('images/ball'+"$ballNo"+'.png'),
+        Expanded(
+          child: Center(
+            child: TextButton(
+              onPressed: (){
+                random();
+                print(ballNo);
+              },
+              child: Image.asset('images/ball'+"$ballNo"+'.png'),
+            ),
           ),
         ),
       ],
